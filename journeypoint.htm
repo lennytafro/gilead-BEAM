@@ -1,0 +1,566 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width">
+        <meta name="viewport" content="initial-scale=1.0">
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-TKS37F6');</script>
+        <!-- End Google Tag Manager -->
+        <title>Celgene Myeloma Marketing Ecosystem</title>
+        <link href="https://fonts.googleapis.com/css?family=Barlow+Condensed" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+        
+      <link href="assets/styles/style_main.css" rel="stylesheet" type="text/css" />
+      <link href="assets/styles/style_print.css" rel="stylesheet" media="print">
+
+    </head>
+    <body>
+    
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TKS37F6"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+            <!-- BEGIN ON-PAGE HEADER -->
+		<header>
+
+			<img src="assets/images/logo.png" title="Beacon Healthcare Communications" class="imgleft">
+			<img src="assets/images/gileadlogo.jpg" title="Gilead Sciences Marketing" class="imgright">
+			<div class="tommy">
+				<h1>Strategic Imperatives</h1>
+				<h3>Ordered by Strat Imperative</h3>
+			</div>
+
+		</header>
+        <!-- END ON-PAGE HEADER -->
+        <!-- close vue app  ESSENTIAL!-->
+		<div id="app-2">
+		<!-- open vue app  ESSENTIAL! DO NOT FUCK WIT-->
+                <transition name="fade">
+                    <section class="button_group bgroup_main">
+                        <button v-on:click="loadItemsAll()">Show All</button>
+                        <button v-on:click="loadItemsBranded()">Show Branded</button>
+                        <button v-on:click="loadItemsUnbranded()">Show Unbranded</button>
+                    </section>
+                </transition>
+        <!-- ###################### -->
+        <!-- ###################### -->
+        <!-- ###################### -->
+
+            <!-- SCRODAL CONTAINER  -->
+            <div v-if="show" class="scrodal_container">
+                <div v-for="item in holdItem" class="scrodal_content" v-show="show">
+
+                    <!-- SCRODAL CONTENT TEMPLATE  -->
+                    <!-- CLOSE X -->
+                    <button @click="killScrotie">X</button>
+                    <div class="scrodal_contentwrap">
+                        <!-- LOGO TABLE -->
+                        <table width="100%">
+                            <tr>
+                                <!-- BRAND LOGO -->
+                                <td align="left"><img :src="getAssetBrandLogo(item)" alt="" v-if="item['fields']['Brand Logo']" class="brand_img"></td>
+                                <!-- AUDIENCE -->
+                                <td align="right"><h3>{{ getAssetPACTID(item) }}</h3></td>
+                            </tr>
+                        </table>
+                        <!-- NAME AND PACT ID -->
+                        <h1>{{ getAssetName(item) }}</h1>
+                        <h2>DAY {{ getAssetDay(item) }}</h2>
+                        <!-- <h3></h3> -->
+                        <!-- ASSET DETAILS -->
+                        <table width="100%" border="0" class="asset_detail_table">
+                            <tr>
+                                <td colspan="1" class="labelcell"><p>Subject Line: </p></td><td colspan="3"> <p> {{ getAssetSubjectLine(item) }}</p></td>
+                            </tr>
+                            <tr>
+                                <td colspan="1" class="labelcell"><p>Strategic Imperative: </p></td><td colspan="3"> <p> {{ getAssetStratImperative(item) }}</p></td>
+                            </tr>                
+                            <tr>
+                                <td colspan="1" class="labelcell"><p>Journey Touchpoints: </p></td><td colspan="3"> <p> {{ getAssetJourneyTouchpoint(item) }}</p></td>
+                            </tr>
+                            <tr>
+                                <td colspan="1" class="labelcell"><p> Message Theme: </p></td><td colspan="3"> <p> {{ getKeyMessageTheme(item) }}</p></td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="1" class="labelcell"><p>Key Message: </p></td><td colspan="3"> <p> {{ getKeyMessage(item) }}</p></td>
+                            </tr>
+                            <tr>
+                                <td class="labelcell"><p>Module </p></td><td> <p> <a href="https://www.google.com" target="_blank" title="Link to Best Practices">{{ getAssetModule(item) }}</a></p></td>
+                                <td class="labelcell"><p>Promotional Status: </p></td><td> <p> {{ getAssetPromoStatus(item) }} </p></td>
+                            </tr>
+                            <tr>
+                                <td class="labelcell"><p>Tactic </p></td><td> <p> {{ getAssetTactic(item) }}</p></td>
+                                <td class="labelcell"><p>Tactic Type: </p></td><td> <p> {{ getAssetTacticType(item) }}</p></td>
+                            </tr> 
+
+                            <tr>
+                                <td class="labelcell"><p>Channel: </p></td><td> <p> {{ getAssetChannel(item) }}</p></td>
+                                <td class="labelcell"><p>Channel Type: </p></td><td> <p> {{ getAssetChannelType(item) }}</p></td>
+                            </tr> 
+                            <tr>
+                                <td class="labelcell"><p>Market: </p></td><td> <p> {{ getAssetMarket(item) }}</p></td>
+                                <td class="labelcell"><p>Language: </p></td><td> <p> {{ getAssetLanguage(item) }}</p></td>
+                            </tr>
+                            <tr>
+                                <td class="labelcell"><p></p></td><td> <p> </p></td>
+                                <td class="labelcell"><p></p></td><td> <p> </p></td>
+                            </tr>
+
+                            <tr v-if="item['fields']['BRD']">
+                                <td class="labelcell"><p>BRD Doc: </p></td><td>
+                                    <p><a v-bind:href="getAssetBRDLink(item)"><img v-bind:src="getBRDDocIcon(item)" v-bind:title="getBRDDocDetails(item)" class="doc_img"></a> ({{ getAssetBRDSize(item) }})</p>
+                                </td>
+                                <td class="labelcell"></td>
+                            </tr>
+                        </table>
+                        <!-- <br v-if="item['fields']['Thumbnail']"> -->
+                        <!-- TABBED PANELS -->
+                        <div id="exTab2" class="container"> 
+                            <ul v-if="item['fields']['Thumbnail']" class="nav nav-tabs">
+                                <li class="active">
+                                <a  href="#1" data-toggle="tab">Creative</a>
+                                </li>
+                                <li><a href="#2" data-toggle="tab">Measurement</a>
+                                </li>
+                                <li><a href="#3" data-toggle="tab">Misc.</a>
+                                </li>
+                            </ul>
+                            <ul v-else class="nav nav-tabs">
+                                <li class="active">
+                                <a href="#2" data-toggle="tab">Measurement</a>
+                                </li>
+                                <li><a href="#3" data-toggle="tab">Misc.</a>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="1">
+                                    <!-- <span>Creative:</span><br v-if="item['fields']['Thumbnail']"> --><img :src="getAssetImage(item)" alt="" v-if="item['fields']['Thumbnail']" class="assetimage">
+                                </div>
+                                <div class="tab-pane" id="2">
+                                    <!--  ################  -->
+                                <!--  BEGIn KPI TABLES  -->
+
+                                    <!--  EMAIL KPI TABLE  -->
+                                    <br />
+                                    <table v-if="isItemTactic_Email(item)" border="0" width="100%">
+                                        <tr>
+                                            <td><span class="combinedlabel">Combined Performance:<span>&nbsp;<img v-bind:src="getPerf01Icon()" title="Disappointing Expectations" v-if="checkPerfOvrll_RED(item)" class="perf-icon"><img v-bind:src="getPerf03Icon()" title="At Expectations" v-if="checkPerfOvrll_YELLOW(item)" class="perf-icon"><img v-bind:src="getPerf05Icon()" title="Exceeding Expectations" v-if="checkPerfOvrll_GREEN(item)" class="perf-icon"></td></tr>
+                                        <tr>
+                                            <td><h3>{{ getAssetPromoStatus(item) }} {{ getAssetTactic(item) }}</h3></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Key Performance Indicators</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <!--  Begin Individal Email KPIs  -->
+                                                <table border="1" class="kpiminitable">
+                                                    <tr><th colspan="3">Click Rate</th></tr>
+                                                    <tr><td class="weighting" colspan="3">Weighting: 25&#37; of KPI</td></tr>
+                                                    <tr><td>Ideal<br>Actua</td><td>l32.5<br>50.0</td><td><img v-bind:src="getPerf01Icon()" title="Disappointing Expectations" v-if="checkPerfClick_RED(item)" class="perf-icon"><img v-bind:src="getPerf03Icon()" title="At Expectations" v-if="checkPerfClick_YELLOW(item)" class="perf-icon"><img v-bind:src="getPerf05Icon()" title="Exceeding Expectations" v-if="checkPerfClick_GREEN(item)" class="perf-icon"></td></tr>
+                                                </table>
+
+                                                <table border="1" class="kpiminitable">
+                                                    <tr><th colspan="3">Open Rate</th></tr>
+                                                    <tr><td class="weighting" colspan="3">Weighting: 25&#37; of KPI</td></tr>
+                                                     <tr><td>Ideal<br>Actua</td><td>l32.5<br>50.0</td><td><img v-bind:src="getPerf01Icon()" title="Disappointing Expectations" v-if="checkPerfOpen_RED(item)" class="perf-icon"><img v-bind:src="getPerf03Icon()" title="At Expectations" v-if="checkPerfOpen_YELLOW(item)" class="perf-icon"><img v-bind:src="getPerf05Icon()" title="Exceeding Expectations" v-if="checkPerfOpen_GREEN(item)" class="perf-icon"></td></tr>
+                                                </table>
+
+                                                <table border="1" class="kpiminitable">
+                                                    <tr><th colspan="3">Goal Completion Rate</th></tr>
+                                                    <tr><td class="weighting" colspan="3">Weighting: 25&#37; of KPI</td></tr>
+                                                    <tr><td>Ideal<br>Actua</td><td>l32.5<br>50.0</td><td><img v-bind:src="getPerf01Icon()" title="Disappointing Expectations" v-if="checkPerfGoal_RED(item)" class="perf-icon"><img v-bind:src="getPerf03Icon()" title="At Expectations" v-if="checkPerfGoal_YELLOW(item)" class="perf-icon"><img v-bind:src="getPerf05Icon()" title="Exceeding Expectations" v-if="checkPerfGoal_GREEN(item)" class="perf-icon"></td></tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <!--  END Email KPI TABLES -->
+
+
+
+
+
+                                    <!--  WEB KPI TABLE  -->
+                                    <br />
+                                    <table v-if="isItemTactic_Website(item)" border="0" width="100%">
+                                        <tr>
+                                            <td><span class="combinedlabel">Combined Performance:<span>&nbsp;<img v-bind:src="getPerf01Icon()" title="Disappointing Expectations" v-if="checkPerfOvrll_RED(item)" class="perf-icon"><img v-bind:src="getPerf03Icon()" title="At Expectations" v-if="checkPerfOvrll_YELLOW(item)" class="perf-icon"><img v-bind:src="getPerf05Icon()" title="Exceeding Expectations" v-if="checkPerfOvrll_GREEN(item)" class="perf-icon"></td></tr>
+                                        <tr>
+                                            <td><h3>{{ getAssetPromoStatus(item) }} {{ getAssetTactic(item) }}</h3></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Key Performance Indicators</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <!--  Begin Individal Email KPIs  -->
+                                                <table border="1" class="kpiminitable">
+                                                    <tr><th colspan="3">Engagement Rate</th></tr>
+                                                    <tr><td class="weighting" colspan="3">Weighting: 25&#37; of KPI</td></tr>
+                                                    <tr><td>Ideal<br>Actua</td><td>l32.5<br>50.0</td><td><img v-bind:src="getPerf01Icon()" title="Disappointing Expectations" v-if="checkPerfClick_RED(item)" class="perf-icon"><img v-bind:src="getPerf03Icon()" title="At Expectations" v-if="checkPerfClick_YELLOW(item)" class="perf-icon"><img v-bind:src="getPerf05Icon()" title="Exceeding Expectations" v-if="checkPerfClick_GREEN(item)" class="perf-icon"></td></tr>
+                                                </table>
+
+                                                <table border="1" class="kpiminitable">
+                                                    <tr><th colspan="3">Avg Time Spent</th></tr>
+                                                    <tr><td class="weighting" colspan="3">Weighting: 25&#37; of KPI</td></tr>
+                                                     <tr><td>Ideal<br>Actua</td><td>l32.5<br>50.0</td><td><img v-bind:src="getPerf01Icon()" title="Disappointing Expectations" v-if="checkPerfOpen_RED(item)" class="perf-icon"><img v-bind:src="getPerf03Icon()" title="At Expectations" v-if="checkPerfOpen_YELLOW(item)" class="perf-icon"><img v-bind:src="getPerf05Icon()" title="Exceeding Expectations" v-if="checkPerfOpen_GREEN(item)" class="perf-icon"></td></tr>
+                                                </table>
+
+                                                <table border="1" class="kpiminitable">
+                                                    <tr><th colspan="3">Goal Completion Rate</th></tr>
+                                                    <tr><td class="weighting" colspan="3">Weighting: 25&#37; of KPI</td></tr>
+                                                    <tr><td>Ideal<br>Actua</td><td>l32.5<br>50.0</td><td><img v-bind:src="getPerf01Icon()" title="Disappointing Expectations" v-if="checkPerfGoal_RED(item)" class="perf-icon"><img v-bind:src="getPerf03Icon()" title="At Expectations" v-if="checkPerfGoal_YELLOW(item)" class="perf-icon"><img v-bind:src="getPerf05Icon()" title="Exceeding Expectations" v-if="checkPerfGoal_GREEN(item)" class="perf-icon"></td></tr>
+                                                </table>
+
+                                                <table border="1" class="kpiminitable">
+                                                    <tr><th colspan="3">Avg Time Spent</th></tr>
+                                                    <tr><td class="weighting" colspan="3">Weighting: 25&#37; of KPI</td></tr>
+                                                     <tr><td>Ideal<br>Actua</td><td>l32.5<br>50.0</td><td><img v-bind:src="getPerf01Icon()" title="Disappointing Expectations" v-if="checkPerfOpen_RED(item)" class="perf-icon"><img v-bind:src="getPerf03Icon()" title="At Expectations" v-if="checkPerfOpen_YELLOW(item)" class="perf-icon"><img v-bind:src="getPerf05Icon()" title="Exceeding Expectations" v-if="checkPerfOpen_GREEN(item)" class="perf-icon"></td></tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <!--  END WEB KPI TABLES -->
+
+
+
+
+                                    <!--  SOCIAL KPI TABLE   -->
+                                    <br />
+                                    <table v-if="isItemTactic_Social(item)" border="0" width="100%">
+                                        <tr>
+                                            <td><span class="combinedlabel">Combined Performance:<span>&nbsp;<img v-bind:src="getPerf01Icon()" title="Disappointing Expectations" v-if="checkPerfOvrll_RED(item)" class="perf-icon"><img v-bind:src="getPerf03Icon()" title="At Expectations" v-if="checkPerfOvrll_YELLOW(item)" class="perf-icon"><img v-bind:src="getPerf05Icon()" title="Exceeding Expectations" v-if="checkPerfOvrll_GREEN(item)" class="perf-icon"></td></tr>
+                                        <tr>
+                                            <td><h3>{{ getAssetPromoStatus(item) }} {{ getAssetTactic(item) }}</h3></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Key Performance Indicators</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <!--  Begin Individal Email KPIs  -->
+                                                <table border="1" class="kpiminitable">
+                                                    <tr><th colspan="3">Engagement Rate</th></tr>
+                                                    <tr><td class="weighting" colspan="3">Weighting: 25&#37; of KPI</td></tr>
+                                                    <tr><td>Ideal<br>Actua</td><td>l32.5<br>50.0</td><td><img v-bind:src="getPerf01Icon()" title="Disappointing Expectations" v-if="checkPerfClick_RED(item)" class="perf-icon"><img v-bind:src="getPerf03Icon()" title="At Expectations" v-if="checkPerfClick_YELLOW(item)" class="perf-icon"><img v-bind:src="getPerf05Icon()" title="Exceeding Expectations" v-if="checkPerfClick_GREEN(item)" class="perf-icon"></td></tr>
+                                                </table>
+
+                                                <table border="1" class="kpiminitable">
+                                                    <tr><th colspan="3">Open Rate</th></tr>
+                                                    <tr><td class="weighting" colspan="3">Weighting: 25&#37; of KPI</td></tr>
+                                                     <tr><td>Ideal<br>Actua</td><td>l32.5<br>50.0</td><td><img v-bind:src="getPerf01Icon()" title="Disappointing Expectations" v-if="checkPerfOpen_RED(item)" class="perf-icon"><img v-bind:src="getPerf03Icon()" title="At Expectations" v-if="checkPerfOpen_YELLOW(item)" class="perf-icon"><img v-bind:src="getPerf05Icon()" title="Exceeding Expectations" v-if="checkPerfOpen_GREEN(item)" class="perf-icon"></td></tr>
+                                                </table>
+
+                                                <table border="1" class="kpiminitable">
+                                                    <tr><th colspan="3">Goal Completion Rate</th></tr>
+                                                    <tr><td class="weighting" colspan="3">Weighting: 25&#37; of KPI</td></tr>
+                                                    <tr><td>Ideal<br>Actua</td><td>l32.5<br>50.0</td><td><img v-bind:src="getPerf01Icon()" title="Disappointing Expectations" v-if="checkPerfGoal_RED(item)" class="perf-icon"><img v-bind:src="getPerf03Icon()" title="At Expectations" v-if="checkPerfGoal_YELLOW(item)" class="perf-icon"><img v-bind:src="getPerf05Icon()" title="Exceeding Expectations" v-if="checkPerfGoal_GREEN(item)" class="perf-icon"></td></tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <!--  END SOCIAL KPI TABLES -->
+
+
+
+
+
+
+                                    <!--  BANNER KPI TABLE  -->
+                                    <br />
+                                    <table v-if="isItemTactic_Banner(item)" border="0" width="100%">
+                                        <tr>
+                                            <td><span class="combinedlabel">Combined Performance:<span>&nbsp;<img v-bind:src="getPerf01Icon()" title="Disappointing Expectations" v-if="checkPerfOvrll_RED(item)" class="perf-icon"><img v-bind:src="getPerf03Icon()" title="At Expectations" v-if="checkPerfOvrll_YELLOW(item)" class="perf-icon"><img v-bind:src="getPerf05Icon()" title="Exceeding Expectations" v-if="checkPerfOvrll_GREEN(item)" class="perf-icon"></td></tr>
+                                        <tr>
+                                            <td><h3>{{ getAssetPromoStatus(item) }} {{ getAssetTactic(item) }}</h3></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Key Performance Indicators</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <!--  Begin Individal Email KPIs  -->
+                                                <table border="1" class="kpiminitable">
+                                                    <tr><th colspan="3">Impressions</th></tr>
+                                                    <tr><td class="weighting" colspan="3">Weighting: 25&#37; of KPI</td></tr>
+                                                    <tr><td>Ideal<br>Actua</td><td>l32.5<br>50.0</td><td><img v-bind:src="getPerf01Icon()" title="Disappointing Expectations" v-if="checkPerfClick_RED(item)" class="perf-icon"><img v-bind:src="getPerf03Icon()" title="At Expectations" v-if="checkPerfClick_YELLOW(item)" class="perf-icon"><img v-bind:src="getPerf05Icon()" title="Exceeding Expectations" v-if="checkPerfClick_GREEN(item)" class="perf-icon"></td></tr>
+                                                </table>
+
+                                                <table border="1" class="kpiminitable">
+                                                    <tr><th colspan="3">Click Rate</th></tr>
+                                                    <tr><td class="weighting" colspan="3">Weighting: 25&#37; of KPI</td></tr>
+                                                     <tr><td>Ideal<br>Actua</td><td>l32.5<br>50.0</td><td><img v-bind:src="getPerf01Icon()" title="Disappointing Expectations" v-if="checkPerfOpen_RED(item)" class="perf-icon"><img v-bind:src="getPerf03Icon()" title="At Expectations" v-if="checkPerfOpen_YELLOW(item)" class="perf-icon"><img v-bind:src="getPerf05Icon()" title="Exceeding Expectations" v-if="checkPerfOpen_GREEN(item)" class="perf-icon"></td></tr>
+                                                </table>
+
+                                                <table border="1" class="kpiminitable">
+                                                    <tr><th colspan="3">Goal Completion Rate</th></tr>
+                                                    <tr><td class="weighting" colspan="3">Weighting: 25&#37; of KPI</td></tr>
+                                                    <tr><td>Ideal<br>Actua</td><td>l32.5<br>50.0</td><td><img v-bind:src="getPerf01Icon()" title="Disappointing Expectations" v-if="checkPerfGoal_RED(item)" class="perf-icon"><img v-bind:src="getPerf03Icon()" title="At Expectations" v-if="checkPerfGoal_YELLOW(item)" class="perf-icon"><img v-bind:src="getPerf05Icon()" title="Exceeding Expectations" v-if="checkPerfGoal_GREEN(item)" class="perf-icon"></td></tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <!--  END BANNER KPI TABLES -->
+
+
+
+
+
+
+
+
+
+
+                                    <!--  END KPI TABLES  -->
+                                    <!--  ############## -->
+
+                                </div>
+                                <div class="tab-pane" id="3">
+                                    <h3>add clearfix to tab-content (see the css)</h3>
+                                </div>
+                            </div>
+                            <!-- END tab-content -->
+                        </div>
+                        <!-- END TABBED PANELS -->
+                    </div>
+                    <!-- END SCRODAL CONTENT TEMPLATE -->
+                </div>
+            </div>
+            <!-- END SCRODAL CONTAINER  -->
+
+
+            <!-- ###################### -->
+            <!-- ###################### -->
+            <!-- ###################### -->
+
+
+            <!-- DEFAULT PAGE VIEW TEMPLATE -->
+
+            <!-- BEGIN GRIDS OF RETURNED CARDS -->
+
+            <!-- GRID ONE: Patients on Rev  -->
+            <h2 class="gridlabel">Awareness</h2>
+            <h3 class="gridlabel">All Appropriate Newly Diagnosed Patients START with an Rd-Based Regimen</h3>
+            <div class="holdgrid">
+                <transition-group  name="list" tag="ul" class="card_list">
+                    <!-- MINI CARD LAYOUT -->
+                    
+                    <li v-for="item in itemsApp02" v-bind:key="item" class="list-item"  v-bind:id="item['fields']['Celgene Tactic ID']" v-on:click="popScrotie(item)" >
+                        <div>
+                            <table width="100%" border="0">
+                                <tr>
+                                    <!-- BRAND LOGO -->
+                                    <td align="left"><img :src="getAssetBrandLogo(item)" alt="" v-if="item['fields']['Brand Logo']" class="brandthumb"></td>
+                                    <!-- AUDIENCE -->
+                                    <td align="right"><span style="font-weight: bold; text-transform: uppercase; font-size: 80%;">THEME: {{ getKeyMessageTheme(item) }}</span></td>
+                                </tr>
+                            </table>
+                            <!-- PACT CODE -->
+                            <p class="pactcode"><span class="itemlabel">PACT:</span> {{ getAssetPACTID(item) }}</p>
+                            <!--  ENABLE TO SHOW MISSING ASSETS FROM CELGENE
+                                <p class="status">
+                                    <span class="itemlabel">Status:</span> <span v-if="checkStatus(item)" class="found_items"></span>
+                                    <span v-else class="missing_items">{{ item['fields']['Beacon Status'] }}</span>
+                                </p>
+                            -->
+                            <!-- IMAGE -->
+                            <div class="imgbox"><img :src="getAssetImage(item)" alt="" v-if="item['fields']['Thumbnail']"></div>
+                            <!-- PROMO STATUS AND TACTIC TYPE, CONCATINATED FOR DISPLAY -->
+                            <p class="tactic"> {{ getAssetPromoStatus(item) }} {{ getAssetTactic(item) }}</p>
+                            <!-- ASSET NAME -->
+                            <h3>{{ getAssetName(item) }}</h3>
+                            <table width="100%" border="0">
+                                <tr>
+                                    <!-- BRAND LOGO -->
+                                    <td align="left">Performance</td>
+                                    <!-- AUDIENCE -->
+                                    <td align="right"><img v-bind:src="getPerf01Icon()" title="Disappointing Expectations" v-if="checkPerfOvrll_RED(item)" class="perf-icon"><img v-bind:src="getPerf03Icon()" title="At Expectations" v-if="checkPerfOvrll_YELLOW(item)" class="perf-icon"><img v-bind:src="getPerf05Icon()" title="Exceeding Expectations" v-if="checkPerfOvrll_GREEN(item)" class="perf-icon"></td>
+                                </tr>
+                            </table>
+
+
+                            
+                        </div>
+                    </li>
+                    <!-- END MINICARD LAYOUT -->
+                </transition-group>
+            </div>
+            <!-- END GRID 1 -->
+
+
+             <!-- GRID TWO: Caregivers of Patients on Rev  -->
+            <h2 class="gridlabel">Adherence</h2>
+            <h3 class="gridlabel">Solidify the Importance of REVLIMID Maintenance Therapy / Continuous Treatment Until Refractory</h3>
+            <div class="holdgrid">
+                <transition-group  name="list" tag="ul" class="card_list">
+                    <!-- MINI CARD LAYOUT -->
+                    
+                    <li v-for="item in itemsApp03" v-bind:key="item" class="list-item"  v-bind:id="item['fields']['Celgene Tactic ID']" v-on:click="popScrotie(item)" >
+                        <div>
+                            <table width="100%" border="0">
+                                <tr>
+                                    <!-- BRAND LOGO -->
+                                    <td align="left"><img :src="getAssetBrandLogo(item)" alt="" v-if="item['fields']['Brand Logo']" class="brandthumb"></td>
+                                    <!-- AUDIENCE -->
+                                    <td align="right"><span style="font-weight: bold; text-transform: uppercase;">DAY {{ getAssetDay(item) }}</span></td>
+                                </tr>
+                            </table>
+                            <!-- PACT CODE -->
+                            <p class="pactcode"><span class="itemlabel">PACT:</span> {{ getAssetPACTID(item) }}</p>
+                            <!--  ENABLE TO SHOW MISSING ASSETS FROM CELGENE
+                                <p class="status">
+                                    <span class="itemlabel">Status:</span> <span v-if="checkStatus(item)" class="found_items"></span>
+                                    <span v-else class="missing_items">{{ item['fields']['Beacon Status'] }}</span>
+                                </p>
+                            -->
+                            <!-- IMAGE -->
+                            <div class="imgbox"><img :src="getAssetImage(item)" alt="" v-if="item['fields']['Thumbnail']"></div>
+                            <!-- PROMO STATUS AND TACTIC TYPE, CONCATINATED FOR DISPLAY -->
+                            <p class="tactic"> {{ getAssetPromoStatus(item) }} {{ getAssetTactic(item) }}</p>
+                            <!-- ASSET NAME -->
+                            <h3>{{ getAssetName(item) }}</h3>
+                            <table width="100%" border="0">
+                                <tr>
+                                    <!-- BRAND LOGO -->
+                                    <td align="left">Performance</td>
+                                    <!-- AUDIENCE -->
+                                    <td align="right"><img v-bind:src="getPerf01Icon()" title="Disappointing Expectations" v-if="checkPerfOvrll_RED(item)" class="perf-icon"><img v-bind:src="getPerf03Icon()" title="At Expectations" v-if="checkPerfOvrll_YELLOW(item)" class="perf-icon"><img v-bind:src="getPerf05Icon()" title="Exceeding Expectations" v-if="checkPerfOvrll_GREEN(item)" class="perf-icon"></td>
+                                </tr>
+                            </table>
+
+
+                            
+                        </div>
+                    </li>
+                    <!-- END MINICARD LAYOUT -->
+                </transition-group>
+            </div>
+            <!-- END GRID 2 -->
+
+
+
+            <!-- GRID THREE: Prospects on Rev  -->
+            <h2 class="gridlabel">Adjunct (POMALYST) Therapy</h2>
+            <h3 class="gridlabel">HCPs and Patients recognize the clinical value of POMALYST immediately after REVLIMID</h3>
+            <div class="holdgrid">
+                <transition-group  name="list" tag="ul" class="card_list">
+                    <!-- MINI CARD LAYOUT -->
+                    
+                    <li v-for="item in itemsApp04" v-bind:key="item" class="list-item"  v-bind:id="item['fields']['Celgene Tactic ID']" v-on:click="popScrotie(item)" >
+                        <div>
+                            <table width="100%" border="0">
+                                <tr>
+                                    <!-- BRAND LOGO -->
+                                    <td align="left"><img :src="getAssetBrandLogo(item)" alt="" v-if="item['fields']['Brand Logo']" class="brandthumb"></td>
+                                    <!-- AUDIENCE -->
+                                    <td align="right"><span style="font-weight: bold; text-transform: uppercase;">DAY {{ getAssetDay(item) }}</span></td>
+                                </tr>
+                            </table>
+                            <!-- PACT CODE -->
+                            <p class="pactcode"><span class="itemlabel">PACT:</span> {{ getAssetPACTID(item) }}</p>
+                            <!--  ENABLE TO SHOW MISSING ASSETS FROM CELGENE
+                                <p class="status">
+                                    <span class="itemlabel">Status:</span> <span v-if="checkStatus(item)" class="found_items"></span>
+                                    <span v-else class="missing_items">{{ item['fields']['Beacon Status'] }}</span>
+                                </p>
+                            -->
+                            <!-- IMAGE -->
+                            <div class="imgbox"><img :src="getAssetImage(item)" alt="" v-if="item['fields']['Thumbnail']"></div>
+                            <!-- PROMO STATUS AND TACTIC TYPE, CONCATINATED FOR DISPLAY -->
+                            <p class="tactic"> {{ getAssetPromoStatus(item) }} {{ getAssetTactic(item) }}</p>
+                            <!-- ASSET NAME -->
+                            <h3>{{ getAssetName(item) }}</h3>
+                            <table width="100%" border="0">
+                                <tr>
+                                    <!-- BRAND LOGO -->
+                                    <td align="left">Performance</td>
+                                    <!-- AUDIENCE -->
+                                    <td align="right"><img v-bind:src="getPerf01Icon()" title="Disappointing Expectations" v-if="checkPerfOvrll_RED(item)" class="perf-icon"><img v-bind:src="getPerf03Icon()" title="At Expectations" v-if="checkPerfOvrll_YELLOW(item)" class="perf-icon"><img v-bind:src="getPerf05Icon()" title="Exceeding Expectations" v-if="checkPerfOvrll_GREEN(item)" class="perf-icon"></td>
+                                </tr>
+                            </table>
+
+
+                            
+                        </div>
+                    </li>
+                    <!-- END MINICARD LAYOUT -->
+                </transition-group>
+            </div>
+            <!-- END GRID 3 -->
+
+
+             <!-- GRID FOUR: Access -->
+            <h2 class="gridlabel">Access</h2>
+            <h3 class="gridlabel">Ensure seamless access to Revlimid and Pomalyst for all appropriate patients</h3>
+            <div class="holdgrid">
+                <transition-group  name="list" tag="ul" class="card_list">
+                    <!-- MINI CARD LAYOUT -->
+                    
+                    <li v-for="item in itemsApp05" v-bind:key="item" class="list-item"  v-bind:id="item['fields']['Celgene Tactic ID']" v-on:click="popScrotie(item)" >
+                        <div>
+                            <table width="100%" border="0">
+                                <tr>
+                                    <!-- BRAND LOGO -->
+                                    <td align="left"><img :src="getAssetBrandLogo(item)" alt="" v-if="item['fields']['Brand Logo']" class="brandthumb"></td>
+                                    <!-- AUDIENCE -->
+                                    <td align="right"><span style="font-weight: bold; text-transform: uppercase;">DAY {{ getAssetDay(item) }}</span></td>
+                                </tr>
+                            </table>
+                            <!-- PACT CODE -->
+                            <p class="pactcode"><span class="itemlabel">PACT:</span> {{ getAssetPACTID(item) }}</p>
+                            <!--  ENABLE TO SHOW MISSING ASSETS FROM CELGENE
+                                <p class="status">
+                                    <span class="itemlabel">Status:</span> <span v-if="checkStatus(item)" class="found_items"></span>
+                                    <span v-else class="missing_items">{{ item['fields']['Beacon Status'] }}</span>
+                                </p>
+                            -->
+                            <!-- IMAGE -->
+                            <div class="imgbox"><img :src="getAssetImage(item)" alt="" v-if="item['fields']['Thumbnail']"></div>
+                            <!-- PROMO STATUS AND TACTIC TYPE, CONCATINATED FOR DISPLAY -->
+                            <p class="tactic"> {{ getAssetPromoStatus(item) }} {{ getAssetTactic(item) }}</p>
+                            <!-- ASSET NAME -->
+                            <h3>{{ getAssetName(item) }}</h3>
+                            <table width="100%" border="0">
+                                <tr>
+                                    <!-- BRAND LOGO -->
+                                    <td align="left">Performance</td>
+                                    <!-- AUDIENCE -->
+                                    <td align="right"><img v-bind:src="getPerf01Icon()" title="Disappointing Expectations" v-if="checkPerfOvrll_RED(item)" class="perf-icon"><img v-bind:src="getPerf03Icon()" title="At Expectations" v-if="checkPerfOvrll_YELLOW(item)" class="perf-icon"><img v-bind:src="getPerf05Icon()" title="Exceeding Expectations" v-if="checkPerfOvrll_GREEN(item)" class="perf-icon"></td>
+                                </tr>
+                            </table>
+
+
+                            
+                        </div>
+                    </li>
+                    <!-- END MINICARD LAYOUT -->
+                </transition-group>
+            </div>
+            <!-- END GRID 4 -->
+
+
+
+            <!-- END GRIDS OF RETURNED CARDS -->
+
+            <!-- ###################### -->
+            <!-- ###################### -->
+            <!-- ###################### -->
+
+            <!-- END DEFAULT PAGE VIEW TEMPLATE -->
+
+		</div>
+
+
+        <script type="text/javascript" src="https://unpkg.com/vue"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.2/axios.min.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="https://unpkg.com/vue-scrollto"></script>
+        <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="scripts/journey.js"></script>
+    </body>
+</html>

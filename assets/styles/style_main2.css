@@ -1,0 +1,619 @@
+/* style for celgene myeloma */
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,400i,700,700i');
+
+
+body, ul, li{
+    font-family: 'Barlow Condensed', 'Helvetica Condensed', 'Arial Condensed', Helvetica, Arial,  sans-serif;
+
+}
+body{
+/*  background-color: #DDDDDD;*/
+  background: linear-gradient( white,#DDDDDD );
+/*  background: no-repeat 0 0 url("../images/background.png");*/
+}
+.scrollstopper{
+  overflow: hidden;
+}
+
+h1 {
+  margin-left: 1.1em;
+}
+
+.button_group{
+  float: left;
+  display: block;
+  width: 40%;
+  border: 1px solid #777;
+  position: absolute;
+  top: 5px;
+  left: 500px;
+  z-index: 100;
+}
+.button_group button{
+  display: block;
+  float: left;
+}
+
+/*stuff for the canvas visjs*/
+/*
+#mynetwork {
+  width: 90%;
+  height: 90%;
+  border: 1px solid lightgray;
+}
+code {
+  font-size: 14px;
+  background: #dddddd;
+}
+p {
+  max-width: 600px;
+}
+.indented {
+  margin-left: 30px;
+}
+.sep {
+  height: 1px;
+  width: 35%;
+  margin-left: 40px;
+  background-color: #dddddd;
+}*/
+
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .9s
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0
+}
+
+
+
+
+
+/*Stuff for video bbackground */
+
+.homepage-hero-module {
+    border-right: none;
+    border-left: none;
+    position: relative;
+}
+.no-video .video-container video,
+.touch .video-container video {
+    display: none;
+}
+.no-video .video-container .poster,
+.touch .video-container .poster {
+    display: block !important;
+}
+.video-container {
+    position: relative;
+    bottom: 0%;
+    left: 0%;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background: #000;
+}
+.video-container .poster img {
+    width: 100%;
+    bottom: 0;
+    position: absolute;
+}
+.video-container .filter {
+    z-index: 100;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.4);
+    width: 100%;
+}
+.video-container video {
+    position: absolute;
+    z-index: 0;
+    bottom: 0;
+}
+.video-container video.fillWidth {
+    width: 100%;
+}
+
+
+
+/*styles for each card*/
+/*styles for each card*/
+
+.card_list{
+  position: relative;
+}
+
+.list-item  h3{
+	margin-top: 5px;
+	font-size: 1.4em;
+}
+
+
+.list-item  p{
+	font-family: 'Barlow Condensed', 'Helvetica Condensed', 'Arial Condensed', Helvetica, Arial,  sans-serif;
+	margin-top: 4px;
+}
+.list-item  p:last-child{
+
+  margin-top: 0px;
+}
+.list-item  p.status, .list-item  p.tactic{
+	font-size: .85em;
+  color: #222;
+  margin-bottom: 0px;
+
+}
+.label {
+	color: #222;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+	font-weight: bold;
+}
+.list-item {
+  display: block;
+  float: left;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  border: 1px solid #cccccc;
+  background-color: #ffffff;
+  min-height: 300px;
+  max-height: 300px;
+  overflow: hidden;
+  max-width: 200px;
+  padding: 0px 5px 10px 5px;
+  -webkit-box-shadow: 6px 6px 34px -5px rgba(119,119,119,0.62);
+  -moz-box-shadow: 6px 6px 34px -5px rgba(119,119,119,0.62);
+  box-shadow: 6px 6px 34px -5px rgba(119,119,119,0.62);
+  z-index: 10;
+
+
+
+}
+
+.imgbox{
+	height: 120px;
+	width: 180px;
+	overflow: hidden;
+	margin: 0px;
+	display: block;
+	text-align: center;
+	background: linear-gradient(#044B92, white);
+}
+
+.imgbox img{
+  width: 180px;
+}
+
+.pactcode{
+  font-size: 1.25em;
+  margin-bottom: 0px;
+}
+.found_items{
+	color: green;
+}
+.missing_items{
+	color: red;
+}
+.itemlabel{
+  color: #CCCCCC;
+}
+.labelcell{
+  color: #CCCCCC;
+  width: 90px;
+
+}
+
+.brandthumb{
+	height: 40px;
+	max-height: 40px;
+	max-width:  100px;
+}
+.brand_img{
+  height: 80px;
+  max-height: 80px;
+  max-width:  100%;
+}
+
+.aud-icon{
+  height: 18px;
+}
+.aud_img{
+  height: 48px;
+}
+
+
+.doc_img{
+  height: 32px;
+}
+
+/*animation for the cards*/
+
+.list-enter-active, .list-leave-active {
+  transition: all 1s;
+}
+.list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  transform: translateX(30px);
+}
+
+
+  /*. ################# */
+  /*. SCRODAL  STYLES */
+  /*. ################# */
+
+.scrodal_container{
+  /*. visibility handled by vuejs  */
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  right: 0%;
+  bottom: 0%;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background-color:rgba(0, 0, 0, 0.5);
+  z-index: 50;
+
+}
+
+.scrodal_content{
+
+  position: fixed;
+  top: 5%;
+  left: 5%;
+  right: 5%;
+  bottom: 5%;
+  height: 80%;
+  width: 50%;
+  overflow-y: scroll;
+  background: linear-gradient( white,#eeeeee );
+  color: #777;
+  -webkit-box-shadow: 15px 21px 33px 12px rgba(46,46,46,0.51);
+  -moz-box-shadow: 15px 21px 33px 12px rgba(46,46,46,0.51);
+  box-shadow: 15px 21px 33px 12px rgba(46,46,46,0.51);
+  padding: 12px 12px;
+  margin: auto;
+
+}
+
+#app button{
+  margin-left: 20px;
+}
+
+.scrodal_contentwrap{
+  margin: auto;
+  width: 70%;
+}
+
+.scrodal_content .scrodal_contentwrap h1{
+  margin: 8px 0px 4px 0px;
+
+}
+.scrodal_content .scrodal_contentwrap h2, .scrodal_content .scrodal_contentwrap h3{
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.scrodal_content button {
+    position: relative;
+    width: 26px;
+    top: 0px;
+    float: right;
+    margin-right: 0px;
+    font-family: Helvetica, Arial,  sans-serif;
+    font-weight: bold;
+}
+
+
+.scrodal_content .assetimage{
+  max-width:100%;
+}
+
+.scrodal_content table tr td{
+  padding: 2px;
+}
+
+.scrodal_content table tr td p{
+  margin: 0px;
+}
+
+
+
+/*. end support for the scrodals */
+
+
+
+  /*. ################# */
+  /*. RESPONSIVE STYLES */
+  /*. ################# */
+
+  /*. smaller than iPad Landscape */
+  @media (max-width: 1000px) {
+    .scrodal_content{
+      width: 75%;
+    }
+
+    .desc:after {
+      content:" In fact, it's less than 1000px wide.";
+    }
+  }
+
+  /*. smaller than iPad Landscape */
+  @media (max-width: 400px) {
+    .scrodal_content{
+      width: 95%;
+    }
+
+    .desc:after {
+      content:" In fact, it's less than 400px wide.";
+    }
+  }
+
+  @media(orientation: portrait){
+
+  }
+  @media(min-width: 2000px){
+    body{
+      background: no-repeat 0 0 url("../images/background.png");
+    }
+    .list-item {
+      position: absolute;
+    }
+
+    #US-REV170059{    
+    top: 620px;
+      left: 1950px;}
+    #US-POM160051{top: 610px;
+    left: 2160px;}
+    #US-REV150126(1){
+    top: 620px;
+      left: 1940px;}
+    
+    #US-REV170053{    top: 806px;
+    left: 1830px;}
+    #US-POM160033{    top: 790px;
+    left: 1910px;}
+    #US-REV170016(1){
+    top: 620px;
+      left: 1920px;}
+    
+    #US-REV150112-2{
+    top: 620px;
+      left: 1940px;}
+    #US-REV150114-2{
+    top: 620px;
+      left: 1950px;}
+    #US-REV170060{
+    top: 620px;
+      left: 1960px;}
+    #US-REV160021-1{
+    top: 620px;
+      left: 1970px;}
+    #US-REV160119-1{
+      top: 620px;
+      left: 1980px;
+    }
+    #US-REV160051-1{
+          top: 620px;
+      left: 1990px;}
+    #US-REV170095{      top: 620px;
+      left: 1920px;}
+    #US-REV170061{      
+      top: 750px;
+      left: 1920px;}
+    #US-REV150115-1{      
+      top: 750px;
+      left: 1930px;
+    }
+    #US-REV150126-1{    top: 590px;
+    left: 1890px;}
+
+    #US-REV160111-1{top: 750px;left: 1960px;}
+    #US-REV160429{top: 750px;left: 1980px;}
+    #US-REV170016-1{ top: 730px; left: 470px;}
+    #US-REV170081{
+      top: 780px;
+      left: 430px;
+    }
+    #US-REV170096{
+      top: 750px;
+      left: 1990px;
+    }
+    #US-REV170080{
+      top: 775px;
+      left: 90px;
+    }
+    #US-REV140005-2{
+      top: 1080px;
+      left: 1490px;
+    }
+    #US-REV170147{
+      top: 750px;
+      left: 1840px;
+    }
+    #US-REV170147a{
+      top: 750px;
+      left: 1940px;
+    }
+    #US-REV170008{top: 750px;left: 1900px;}
+    #US-REV170037{    top: 690px;
+    left: 300px;}
+    #US-REV170047-1{    top: 747px;
+    left: 393px;}
+    #US-REV170062{top: 730px;
+    left: 320px;}
+    #US-REV150127-2{top: 750px;left: 1500px;}
+    #US-REV160052-1{top: 750px;left: 1240px;}
+    #US-REV170080a{
+          top: 750px;
+    left: 350px;
+    }
+
+
+
+    #US-POM170001{top: 930px;left: 400px;}
+
+
+
+
+    #US-CELG170119{    top: 40px;
+    left: 2260px;}
+    #US-CELG160223-2{
+      top: -140px;
+      left: 280px;
+    }
+    #US-CELG140129-1{
+      top: -160px;
+      left: 220px;
+    }
+    #US-CELG170196{
+      top: 190px;
+      left: 240px;
+    }
+    #US-CELG170005{top: 1051px;
+      left: 1310px;}    
+    #US-CELG170082{top: 1051px;
+      left: 1320px;}
+    #US-CELG170083{top: 1051px;
+      left: 1330px;}
+    #US-CELG170120{top: 1051px;
+      left: 1340px;}
+    #US-CELG170245{top: 1051px;
+      left: 1350px;}
+    #US-CELG170006-2{top: 1051px;
+      left: 1360px;}
+    #US-CELG170007-2{top: 1051px;
+      left: 1370px;}
+    #US-CELG150127-2{top: 1051px;
+      left: 1380px;}
+    #US-CELG140096h-1{top: 1051px;
+      left: 1390px;}
+    #US-CELG140096f-1{top: 1051px;
+      left: 1400px;}
+    #US-CELG150194a-1{top: 1051px;
+      left: 1410px;}   
+    #US-CELG170091{top: 1051px;
+      left: 1420px;}
+    #US-CELG150048-2{top: 1051px;
+      left: 1430px;}
+    #US-CELG140256-2{top: 1051px;
+      left: 1440px;}
+    #US-CELG160314-1{
+      top: -120px;
+    left: 2050px;
+    }
+    #US-CELG170221{top: 1051px;
+      left: 1300px;}
+    
+    #REMS-GEN16855{top: 1120px;left: 2093px;}
+    #REMS-GEN16786{top: 1125px;left: 2098px;}
+    #REMS-GEN16942{top: 1130px;left: 2098px;}
+    #REMS-GEN14581{top: 1125px;left: 2103px;}
+    #US-MBM170064{
+          top: 1041px;
+      left: 1510px;
+        }
+        
+    #US-MBM160091-1{top: 1051px;
+      left: 1520px;}
+    #US-MBM170056{    
+      top: 1061px;
+      left: 1530px;
+    }
+    #US-MBM170005a{top: 1071px;
+      left: 1540px;}
+
+    #US-MBM170023-1a{
+      top: 1051px;
+      left: 1300px;
+    }
+    
+    
+    #US-POM170039{    
+      top: 610px;
+      left: 2180px;
+    }
+    #US-POM140004-1{
+      top: 710px;
+      left: 1180px;
+    }
+    #REMS-GEN12234{      
+      top: 1160px;
+      left: 1820px;
+    }
+    #REMS-GEN16939{      top: 1150px;
+      left: 1830px;}
+    #REMS-GEN16941{      top: 1140px;
+      left: 1840px;}
+    #REMS-GEN16940{      top: 1130px;
+      left: 1850px;}
+    #REMS-GEN15711{    
+      top: 1160px;
+      left: 280px;}
+    #REMS-GEN16854{    
+      top: 1120px;
+      left: 1870px;
+    }
+    #US-CELG160219e{
+        top: 1081px;
+      left: 1550px;
+      }
+    #US-CELG150272-2{
+        top: 1180px;
+        left: 1885px;    
+    }
+      #US-POM160032-1a{
+        top: 1130px;
+      left: 1850px;
+      }
+    #NO-PACT-CODE-01{top: 230px; left: 60px;}
+    #NO-PACT-CODE-02{        top: 20px;
+    left: 60px;}
+    #NO-PACT-CODE-03{top: -160px;
+    left: 1060px;}
+    #NO-PACT-CODE-04{    top: 270px;
+    left: 1600px;}
+    #NO-PACT-CODE-05{    top: -140px;
+    left: 1610px;}
+    #NO-PACT-CODE-06{    top: -40px;
+    left: 1800;}
+    #NO-PACT-CODE-07{    top: 290px;
+    left: 1800px;}
+    #NO-PACT-CODE-08{    top: -120px;
+    left: 2050px;}
+    #NO-PACT-CODE-09{    top: 180px;
+    left: 2040px;}
+    #NO-PACT-CODE-10{    top: 640px;
+    left: 130px;}
+    #NO-PACT-CODE-11{    top: 1130px;
+    left: 2080px;}
+    #NO-PACT-CODE-12{    top: 1110px;
+    left: 1520px;}
+    #NO-PACT-CODE-13{    top: 1090px;
+    left: 1550px;}
+    #NO-PACT-CODE-14{top: 1060px;
+    left: 1590px;}
+    #NO-PACT-CODE-15{    top: 1050px;
+    left: 1230px;}
+    #NO-PACT-CODE-16{top: 1300px;
+    left: 1041px;}
+    #NO-PACT-CODE-17{top: 1340px;
+    left: 1070px;}
+    #NO-PACT-CODE-18{    top: 1370px;
+    left: 1100px;}
+    #NO-PACT-CODE-19{    top: 720px;
+    left: 1520px;}
+    #NO-PACT-CODE-20{
+      top: 240px;
+      left: 1390px;
+    }
+    #NO-PACT-CODE-21{
+      top: 40px;
+      left: 1290px;
+    }
+
+
+
+
+

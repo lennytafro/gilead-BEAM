@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+<head>
+    <title>Network | Custom Groups</title>
+
+    <style>
+        body {
+            color: #777777;
+            font: 12pt arial;
+            background-color: #ffffff;
+        }
+
+        #mynetwork {
+            width: 80%;
+            margin: 10px auto;
+            height: 800px;
+            border: 1px solid #eeeeee;
+            background-color: #ffffff;
+        }
+    </style>
+
+    <script type="text/javascript" src="scripts/vis.min.js"></script>
+    <link href="scripts/vis-network.min.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+    
+</head>
+
+<body>
+<h2><i class="fa fa-flag"></i> We use an icon once in the DOM so the CSS for fontAwesome is loaded.</h2>
+<div id="mynetwork"></div>
+<script type="text/javascript">
+    var nodes = [
+        {id: 0, label: "Celgene Patient Support \nPomalyst", group: 'cps'},
+        {id: 1, label: "Celgene Patient Support \nRevlimid", group: 'cps'},
+        {id: 2, label: "Celgene Patient Support \nThalomid", group: 'cps'},
+        {id: 3, label: "Celgene Patient Support \nRegistration", group: 'cps'},
+        {id: 4, label: 'Celgene CPS Database', shape: 'database'},
+        {id: 5, label: "Celgene REMS\n Pomalyst", group: 'rems'},
+        {id: 6, label: "Celgene REMS\n Revlimid", group: 'rems'},
+        {id: 7, label: "Celgene REMS\n Thalomid", group: 'rems'},
+        {id: 8, label: "Celgene REMS\n Homepage", group: 'rems'},
+        {id: 9, label: 'Celgene REMS\n Database', shape: 'database'},
+        {id: 10, label: "Celgene Research\n Oncology Website", group: 'mints'},
+        {id: 11, label: "Pomalyst HCP Website", group: 'mints'},
+        {id: 12, label: "Revlimid HCP Website", group: 'mints'},
+        {id: 13, label: "Pomalyst Patient Website", group: 'mints'},
+        {id: 14, label: "Revlimid Patient Website", group: 'mints'},
+        {id: 15, label: "Standing in the Gaap\n Myeloma Central", group: 'dots'},
+        {id: 16, label: "Myeloma Central Website", group: 'ims'},
+        {id: 17, label: "MMMS Registration", group: 'ims'},
+        {id: 18, label: 'ims Nexxus\n Database', shape: 'database'},
+        {id: 19, label: "MM Treatment Options\n Landing Page", group: 'dots'},
+    ];
+    var edges = [
+        {from: 0, to: 4},
+        {from: 1, to: 4},
+        {from: 2, to: 4},
+        {from: 3, to: 4},
+        {from: 4, to: 17},
+        {from: 5, to: 9},
+        {from: 6, to: 9},
+        {from: 7, to: 9},
+        {from: 8, to: 9},
+        {from: 11, to: 13},
+        {from: 12, to: 14},
+        {from: 13, to: 0},
+        {from: 14, to: 1},
+        {from: 15, to: 16},
+        {from: 16, to: 18},
+        {from: 17, to: 18},
+        {from: 19, to: 14},
+        {from: 19, to: 13},
+    ]
+
+    // create a network
+    var container = document.getElementById('mynetwork');
+    var data = {
+        nodes: nodes,
+        edges: edges
+    };
+    var options = {
+        nodes: {
+            shape: 'dot',
+            size: 20,
+            font: {
+                size: 12,
+                color: '#777777'
+            },
+            borderWidth: 2
+        },
+        edges: {
+            width: 2
+        },
+        groups: {
+            rems: {
+                color: {background:'red',border:'pink'},
+                shape: 'diamond'
+            },
+            dots: {
+                shape: 'dot',
+                color: {background:'navy',border:'cyan'},
+            },
+            ims: {color:'rgb(0,255,140)'},
+            cps: {
+                shape: 'icon',
+                icon: {
+                    face: 'FontAwesome',
+                    code: '\uf0c0',
+                    size: 50,
+                    color: 'orange'
+                }
+            },
+            source: {
+                color:{border:'white'}
+            }
+        }
+    };
+    var network = new vis.Network(container, data, options);
+
+</script>
+
+</body>
+</html>

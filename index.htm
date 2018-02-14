@@ -1,0 +1,175 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width">
+        <meta name="viewport" content="initial-scale=1.0">
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-TKS37F6');</script>
+        <!-- End Google Tag Manager -->
+        <title>Gilead Sciences Marketing Ecosystem</title>
+        <link href="https://fonts.googleapis.com/css?family=Barlow+Condensed" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <script type="text/javascript" src="scripts/vis.min.js"></script>
+    <link href="scripts/vis-network.min.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+      <link href="assets/styles/style_main.css" rel="stylesheet" type="text/css" />
+      <link href="assets/styles/style_print.css" rel="stylesheet" media="print">
+
+
+    </head>
+    <body>
+    
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TKS37F6"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+
+
+
+
+        <!-- BEGIN ON-PAGE HEADER -->
+        <header style="height: 120px;">
+
+            <img src="assets/images/logo.png" title="Beacon Healthcare Communications" class="logotap imgleft">
+            <img src="assets/images/gileadlogo.jpg" title="Gilead Sciences Marketing" class="imgright">
+            
+        </header>
+        <!-- END ON-PAGE HEADER -->
+
+        <div id="app" class="container_center">
+
+            <!-- ###################### -->
+            <!-- ###################### -->
+            <!-- ###################### -->
+
+            <!-- DEFAULT PAGE VIEW TEMPLATE -->
+
+
+            <section class="button_group bgroup_big">
+                    <button class="navbutton btn02">Email <br>Streams</button>
+                    <button class="navbutton btn03">Strategic Imperatives</button>
+            </section>
+
+<h2 style="color: #eeeeee;"><i class="fa fa-lightbulb"></i></h2>
+<div id="mynetwork"></div>
+<script type="text/javascript">
+    var nodes = [
+        {id: 0, label: "Celgene Patient Support \nPomalyst", group: 'cps'},
+        {id: 1, label: "Celgene Patient Support \nRevlimid", group: 'cps'},
+        {id: 2, label: "Celgene Patient Support \nThalomid", group: 'cps'},
+        {id: 3, label: "Celgene Patient Support \nRegistration", group: 'cps'},
+        {id: 4, label: 'Celgene CPS Database', shape: 'database'},
+        {id: 5, label: "Celgene REMS\n Pomalyst", group: 'rems'},
+        {id: 6, label: "Celgene REMS\n Revlimid", group: 'rems'},
+        {id: 7, label: "Celgene REMS\n Thalomid", group: 'rems'},
+        {id: 8, label: "Celgene REMS\n Homepage", group: 'rems'},
+        {id: 9, label: 'Celgene REMS\n Database', shape: 'database'},
+        {id: 10, label: "Celgene Research\n Oncology Website", group: 'hcp'},
+        {id: 11, label: "Pomalyst HCP Website", group: 'hcp'},
+        {id: 12, label: "Revlimid HCP Website", group: 'hcp'},
+        {id: 13, label: "Pomalyst Patient Website", group: 'mints'},
+        {id: 14, label: "Revlimid Patient Website", group: 'mints'},
+        {id: 15, label: "Standing in the Gaap\n Myeloma Central", group: 'dots'},
+        {id: 16, label: "Myeloma Central Website", group: 'ims'},
+        {id: 17, label: "MMMS Registration", group: 'ims'},
+        {id: 18, label: 'ims Nexxus\n Database', shape: 'database'},
+        {id: 19, label: "MM Treatment Options\n Landing Page", group: 'dots'},
+    ];
+    var edges = [
+        {from: 0, to: 4},
+        {from: 1, to: 4},
+        {from: 2, to: 4},
+        {from: 3, to: 4},
+        {from: 4, to: 17},
+        {from: 5, to: 9},
+        {from: 6, to: 9},
+        {from: 7, to: 9},
+        {from: 8, to: 9},
+        {from: 11, to: 13},
+        {from: 12, to: 14},
+        {from: 13, to: 0},
+        {from: 14, to: 1},
+        {from: 15, to: 16},
+        {from: 16, to: 18},
+        {from: 17, to: 18},
+        {from: 19, to: 14},
+        {from: 19, to: 13},
+    ]
+
+    // create a network
+    var container = document.getElementById('mynetwork');
+    var data = {
+        nodes: nodes,
+        edges: edges
+    };
+    var options = {
+        nodes: {
+            shape: 'dot',
+            size: 20,
+            font: {
+                size: 12,
+                color: '#777777'
+            },
+            borderWidth: 2
+        },
+        edges: {
+            width: 2
+        },
+        groups: {
+            rems: {
+                color: {background:'red',border:'pink'},
+                shape: 'diamond'
+            },
+            dots: {
+                shape: 'dot',
+                color: {background:'navy',border:'cyan'},
+            },
+            ims: {color:'rgb(0,255,140)'},
+            cps: {
+                shape: 'icon',
+                icon: {
+                    face: 'FontAwesome',
+                    code: '\uf0c0',
+                    size: 50,
+                    color: 'orange'
+                }
+            },
+            hcp: {
+                shape: 'icon',
+                icon: {
+                    face: 'FontAwesome',
+                    code: '\uf0f0',
+                    size: 50,
+                    color: 'pink'
+                }
+            },
+            source: {
+                color:{border:'white'}
+            }
+        }
+    };
+    var network = new vis.Network(container, data, options);
+
+</script>
+ 
+            <!-- ###################### -->
+            <!-- ###################### -->
+            <!-- ###################### -->
+
+            <!-- END DEFAULT PAGE VIEW TEMPLATE -->
+
+        </div>
+        <!-- close vue app  ESSENTIAL!-->
+
+
+        <script type="text/javascript" src="https://unpkg.com/vue"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.2/axios.min.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="https://unpkg.com/vue-scrollto"></script>
+        <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="scripts/index.js"></script>
+    </body>
+</html>
